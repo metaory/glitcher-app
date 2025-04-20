@@ -4,7 +4,7 @@
   font-display: swap;
   font-weight: 400;
   src: url(https://cdn.jsdelivr.net/fontsource/fonts/libre-barcode-128-text@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/libre-barcode-128-text@latest/latin-400-normal.woff) format('woff');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 :root {
@@ -27,7 +27,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,body {
+html,
+body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -38,38 +39,43 @@ html,body {
 main {
   display: grid;
   place-items: center;
-  /* gap: 2rem; */
-  padding: 4rem;
+  gap: 2rem;
+  /* padding: 2rem; */
   min-height: 90vh;
+  /* width: min(90vw, 800px); */
+  margin: 0 auto;
   /* mix-blend-mode: difference; */
 }
 
-h1 {
-  margin: 0;
-  top: 1rem;
-  right: 1rem;
-  font-size: 4rem;
-  background: #00000066;
-  padding: 0 1rem;
-  border-radius: 1rem;
-  width: max-content;
-  text-transform: uppercase;
-  font-family: barcode, monospace;
-  backdrop-filter: blur(10px);
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding: 1rem;
   mix-blend-mode: overlay;
-  position: fixed;
+  transition: transform 0.2s ease;
+
+  span {
+    margin: 0;
+    font-size: 4rem;
+    background: #00000066;
+    padding: 0rem 1rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    font-family: barcode, monospace;
+    backdrop-filter: blur(10px);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
 }
 
-#github {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 1000;
-  transition: transform 0.2s ease;
-  mix-blend-mode: overlay;
-} 
 
-input, button {
+input,
+button {
   font: inherit;
   background-color: var(--bo);
   border: none;
@@ -94,25 +100,28 @@ input, button {
 input[type="text"] {
   font-size: 1.5rem;
   padding: 1rem 2rem;
-  min-width: 300px;
+  min-width: min(90vw, 300px);
   text-align: center;
 }
 
 input[type="range"] {
-  width: 100%;
+  width: min(90vw, 300px);
   height: 0.5rem;
   appearance: none;
   position: relative;
-  /* margin-top: 1.2rem; */
+  margin: 1rem auto;
   outline: none;
+  display: block;
 
   &::before {
     content: attr(title);
     position: absolute;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     top: -1.2rem;
     font-size: 0.9rem;
     opacity: 0.6;
+    white-space: nowrap;
   }
 
   &::after {
@@ -148,7 +157,7 @@ button {
   font-size: 1.2rem;
   padding: 0.8rem 1.5rem;
   border: none;
-    background-color: var(--x0);
+  background-color: var(--x0);
 
   &:hover {
     background-color: var(--bo);
@@ -160,12 +169,12 @@ button {
   min-height: 200px;
   display: grid;
   place-items: center;
-  background: #00000011;
+  /* background: #00000011; */
   /* backdrop-filter: blur(10px); */
   border-radius: 6rem;
   padding: 2rem;
   width: 100%;
-  max-width: 600px;
+  /* max-width: 300px; */
   aspect-ratio: 16/9;
 
   svg {
@@ -173,4 +182,4 @@ button {
     height: 100%;
     max-height: 200px;
   }
-} 
+}
