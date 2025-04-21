@@ -36,7 +36,7 @@ const colorMatrices = {
 }
 
 const createGlitchEffect = (text) => {
-  const width = text.length * 17
+  const width = text.length * 20
   const [speed, intensity, colorSep, heightVariation] = [
     'speed',
     'intensity',
@@ -75,11 +75,10 @@ const createGlitchEffect = (text) => {
   }
 
   return `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} 32">
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}px" height="48px" viewBox="0 0 ${width} 48">
       <text filter="url(#glitch)" fill="#FFFFFF" font-family="monospace, serif" 
-            font-weight="bolder" font-size="x-large" text-anchor="middle" 
-            lengthAdjust="spacingAndGlyphs" textLength="70%" 
-            dominant-baseline="mathematical" x="50%" y="30%">${text}</text>
+            font-weight="bolder" font-size="24" text-anchor="middle" 
+            dominant-baseline="middle" x="50%" y="50%">${text}</text>
       <defs>
         <filter id="glitch" primitiveUnits="objectBoundingBox" x="0%" y="0%" height="100%">
           ${Object.keys(colorMatrices).map(colorMatrix).join('')}
@@ -98,7 +97,11 @@ const createGlitchEffect = (text) => {
 }
 
 const updatePreview = (e) => {
-  if (e?.target?.type === 'range') e.target.setAttribute('value', e.target.value)
+  if (e?.target?.type === 'range') {
+    e.target.setAttribute('value', e.target.value)
+    e.preventDefault()
+    e.stopPropagation()
+  }
   const text = $('textInput').value || 'GLITCH'
   $('preview').innerHTML = createGlitchEffect(text)
 }
