@@ -97,7 +97,8 @@ const createGlitchEffect = (text) => {
   `
 }
 
-const updatePreview = (el) => {
+const updatePreview = (e) => {
+  if (e?.target?.type === 'range') e.target.setAttribute('value', e.target.value)
   const text = $('textInput').value || 'GLITCH'
   $('preview').innerHTML = createGlitchEffect(text)
 }
