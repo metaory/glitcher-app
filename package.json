@@ -2,7 +2,7 @@
   "name": "glitcher-app",
   "description": "A dynamic SVG glitch effect generator with real-time preview and customization.",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vfx-js/core": "^0.6.0",
-    "gradient-gl": "^1.2.0"
+    "gradient-gl": "1.*"
   },
   "devDependencies": {
     "vite": "6.*"

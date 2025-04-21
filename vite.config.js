@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import pkg from './package.json'
 
 export default defineConfig({
   base: '/glitcher-app/',
@@ -8,5 +9,8 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     sourcemap: true
+  },
+  define: {
+    'import.meta.env.VERSION': JSON.stringify(pkg.version)
   }
 }) 

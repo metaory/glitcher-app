@@ -19,7 +19,7 @@
   --bl: #22003344;
   --x0: #441144;
   --x1: #771177;
-  --x2: #5500FF;
+  --x2: #BB4499;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,17 +34,16 @@ body {
   height: 100vh;
   margin: 0;
   background: var(--bo);
+  scrollbar-color: var(--x0) transparent;
+  scrollbar-width: thin;
 }
 
 main {
   display: grid;
   place-items: center;
   gap: 2rem;
-  /* padding: 2rem; */
   min-height: 90vh;
-  /* width: min(90vw, 800px); */
   margin: 0 auto;
-  /* mix-blend-mode: difference; */
 }
 
 header {
@@ -68,8 +67,18 @@ header {
   }
 
   a {
-    display: flex;
-    align-items: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+
+    img {
+      filter: invert(1);
+
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 }
 
@@ -81,11 +90,10 @@ button {
   border: none;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
-  color: white;
   outline: 8px solid var(--x0);
+  color: var(--x2);
   transition: all 0.6s ease;
   mix-blend-mode: color-dodge;
-  /* mix-blend-mode: difference; */
 
   &::placeholder {
     color: var(--x1);
@@ -99,11 +107,11 @@ button {
 
 input[type="text"] {
   font-size: 1.5rem;
+  font-weight: bold;
   padding: 1rem 2rem;
-  min-width: min(90vw, 300px);
   text-align: center;
-  max-width: 90vw;
-  min-width: 200px;
+  max-width: 50vw;
+  min-width: 100px;
 }
 
 input[type="range"] {
@@ -111,15 +119,13 @@ input[type="range"] {
   height: 0.5rem;
   appearance: none;
   position: relative;
-  margin: 1rem auto;
+  /* margin: 1rem auto; */
   outline: none;
   display: block;
 
   &::before {
     content: attr(title);
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     top: -1.2rem;
     font-size: 0.9rem;
     opacity: 0.6;
@@ -159,8 +165,10 @@ button {
   font-size: 1.2rem;
   padding: 0.8rem 1.5rem;
   border: none;
+  font-weight: bold;
   background-color: var(--x0);
   margin-bottom: 2rem;
+
   &:hover {
     background-color: var(--bo);
     transform: scale(1.05);
@@ -168,20 +176,26 @@ button {
 }
 
 #preview {
-  /* min-height: 200px; */
   display: grid;
   place-items: center;
-  /* background: #00000011; */
-  /* backdrop-filter: blur(10px); */
   border-radius: 6rem;
-  /* padding: 2rem; */
   width: 100%;
-  /* max-width: 300px; */
-  /* aspect-ratio: 16/9; */
 
   svg {
     width: 100%;
     height: 100%;
     max-height: 200px;
   }
+}
+
+#version {
+  font-family: monospace;
+  font-weight: bold;
+  color: var(--x2);
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.4;
+  pointer-events: none;
 }

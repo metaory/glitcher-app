@@ -1,8 +1,7 @@
 import gradientGL from 'gradient-gl'
-import { VFX } from '@vfx-js/core'
+import '../public/style.css'
 
 gradientGL('a2.bf7c')
-const vfx = new VFX()
 
 const $ = document.getElementById.bind(document)
 const $$ = document.querySelector.bind(document)
@@ -101,7 +100,6 @@ const createGlitchEffect = (text) => {
 const updatePreview = (el) => {
   const text = $('textInput').value || 'GLITCH'
   $('preview').innerHTML = createGlitchEffect(text)
-  // if (el?.target) vfx.update(el.target)
 }
 
 const downloadSVG = () => {
@@ -117,13 +115,11 @@ const downloadSVG = () => {
 }
 
 for (const id of ['textInput', 'speed', 'intensity', 'colorSep', 'slices']) {
-  const el = $(id)
-  el.addEventListener('input', updatePreview)
+  $(id).addEventListener('input', updatePreview)
 }
 
 $('download').addEventListener('click', downloadSVG)
 
-// vfx.add($$('input'), { shader: 'rgbShift', overflow: 100 })
-vfx.add($$('#download>span'), { shader: 'rgbShift', overflow: 100 })
+$('version').textContent = `v${import.meta.env.VERSION}`
 
 updatePreview()
