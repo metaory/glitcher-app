@@ -1,30 +1,17 @@
 <div align="center">
     <img src="public/logo.png" alt="demo" height="128" />
-    <h3>SVG Glitch Generator</h3>
+    <h3><kbd>&nbsp;Glitcher&nbsp;App&nbsp;</kbd></h3>
     <h4>
-        <a href="https://metaory.github.io/glitcher-app/" target="_blank">Glitcher App</a>
+        <a href="https://metaory.github.io/glitcher-app/" target="_blank">
+            metaory.github.io/glitcher-app
+        </a>
     </h4>
     <p>
-        A dynamic SVG glitch effect generator with real-time preview and customization.
+        A dynamic SVG glitch effect generator 
+        <br>
+        with real-time preview and customization
     </p>
-    <img src="public/screenshot.png" alt="demo" width="80%" />
+    <img src="public/screenshot.png" alt="demo" width="60%" />
+    <br>
+    <a href="LICENSE">MIT</a> License
 </div>
-
-## Features
-
-- Real-time SVG glitch preview
-- Customizable animation, intensity, colors
-- Zero dependencies
-- Vanilla JS
-- Modern web-first
-
-## Quick Start
-
-```bash
-npm install
-npm run dev
-```
-
-## License
-
-[MIT](LICENSE)
