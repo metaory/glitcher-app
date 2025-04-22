@@ -51,14 +51,15 @@ const measureText = (text) => {
 const calculateDimensions = (text) => {
   const textWidth = measureText(text)
 
-  const padding = Math.max(1, textWidth * 0.005)
-  const buffer = Math.min(8, textWidth * 0.02)
-  const width = textWidth + padding * 2 + buffer
+  const padding = textWidth * 0.02
+  const width = textWidth + padding * 2
+
+  const scale = 2.5
 
   return {
-    width: Math.max(100, width),
-    height: 48,
-    fontSize: 24,
+    width: Math.max(50, width) * scale,
+    height: 48 * scale,
+    fontSize: 26 * scale,
   }
 }
 
@@ -68,7 +69,7 @@ const calculateSliceDurations = (speed, normalizedHeights) => {
 
   return normalizedHeights.map((height) => {
     const variation = (1 + height / 100) * (0.8 + Math.random() * 0.4)
-    return Math.max(0.05, baseDuration * variation)
+    return Math.max(0.05, (baseDuration * variation).toFixed(4))
   })
 }
 
@@ -129,7 +130,7 @@ export default (text, params) => {
     font-size="${fontSize}" 
     text-anchor="middle" 
     dominant-baseline="middle" 
-    x="50%" 
+    x="48%" 
     y="50%"
   >${text}</text>
   <defs>
