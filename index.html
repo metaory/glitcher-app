@@ -8,7 +8,8 @@
   <meta name="description" content="A dynamic SVG glitch effect generator with real-time preview and customization." />
   <meta name="author" content="metaory" />
   <meta property="og:title" content="SVG Glitch Generator" />
-  <meta property="og:description" content="A dynamic SVG glitch effect generator with real-time preview and customization." />
+  <meta property="og:description"
+    content="A dynamic SVG glitch effect generator with real-time preview and customization." />
   <meta property="og:image" content="https://metaory.github.io/glitcher-app/social.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://metaory.github.io/glitcher-app/" />
@@ -27,12 +28,14 @@
       </a>
       <span>Glitcher</span>
     </header>
-    <input type="text" id="textInput" placeholder="Enter text to glitch..." spellcheck="false" />
+    <input type="text" id="textInput" placeholder="Enter text..." spellcheck="false" />
     <div id="preview"></div>
-    <input type="range" id="speed" title="Speed" min="0.5" max="5" step="0.1" value="2" />
-    <input type="range" id="intensity" title="Intensity" min="0.01" max="0.1" step="0.001" value="0.03" />
-    <input type="range" id="colorSep" title="Separation" min="0.01" max="0.1" step="0.001" value="0.03" />
-    <input type="range" id="slices" title="Slices" min="3" max="15" step="1" value="8" />
+    <div id="controls">
+      <input type="range" id="speed" title="Speed" min="1" max="10" step="0.1" value="5" />
+      <input type="range" id="intensity" title="Intensity" min="0.01" max="0.1" step="0.001" value="0.03" />
+      <input type="range" id="colorSep" title="Separation" min="0.01" max="0.1" step="0.001" value="0.03" />
+      <input type="range" id="slices" title="Slices" min="3" max="15" step="1" value="8" />
+    </div>
     <button id="download"><span>Download SVG</span></button>
     <div id="version"></div>
   </main>

@@ -41,7 +41,7 @@ body {
 main {
   display: grid;
   place-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
   min-height: 90vh;
   margin: 0 auto;
 }
@@ -51,7 +51,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   mix-blend-mode: overlay;
   transition: transform 0.2s ease;
 
@@ -71,6 +71,7 @@ header {
     border-radius: 50%;
 
     img {
+      color: cyan;
       filter: invert(1);
 
       transition: all 0.3s ease;
@@ -82,6 +83,10 @@ header {
   }
 }
 
+#controls {
+  display: grid;
+  gap: 1rem;
+}
 
 input,
 button {
@@ -119,7 +124,6 @@ input[type="range"] {
   height: 0.5rem;
   appearance: none;
   position: relative;
-  /* margin: 1rem auto; */
   outline: none;
   display: block;
 
@@ -182,6 +186,7 @@ button {
   width: 100%;
 
   svg {
+    color-scheme: only dark;
     width: 100%;
     height: 100%;
     max-height: 200px;
