@@ -1,6 +1,6 @@
 <div align="center">
     <div>
-        <img src="public/logo.svg" alt="demo" width="60%" height="240" />
+        <img src="public/logo.svg" alt="demo" />
     </div>
     <h3><kbd>&nbsp;Glitcher&nbsp;App&nbsp;</kbd></h3>
     <h4>
