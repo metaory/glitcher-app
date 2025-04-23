@@ -32,7 +32,7 @@
   --thumb-radius: 30%;
   --thumb-shadow: 0 0 0.8rem #00000033;
   --thumb-transition: all 0.2s ease;
-  --thumb-hover-scale: 2.1;
+  --thumb-hover-scale: 2.4;
   --thumb-hover-bg: var(--x2);
 }
 
@@ -181,7 +181,9 @@ input[type="range"]::-webkit-slider-thumb {
   border: none;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
+input[type="range"]::-webkit-slider-thumb:hover,
+input[type="range"]::-webkit-slider-thumb:active,
+input[type="range"]::-webkit-slider-thumb:focus {
   transform: scale(var(--thumb-hover-scale));
   background: var(--thumb-hover-bg);
 }
@@ -198,9 +200,15 @@ input[type="range"]::-moz-range-thumb {
   border: none;
 }
 
-input[type="range"]::-moz-range-thumb:hover {
+input[type="range"]::-moz-range-thumb:hover,
+input[type="range"]::-moz-range-thumb:active,
+input[type="range"]::-moz-range-thumb:focus {
   transform: scale(var(--thumb-hover-scale));
   background: var(--thumb-hover-bg);
+}
+
+input[type="range"]:active {
+  cursor: grabbing;
 }
 
 button {

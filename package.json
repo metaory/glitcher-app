@@ -2,7 +2,7 @@
   "name": "glitcher-app",
   "description": "A dynamic SVG glitch effect generator with real-time preview and customization.",
   "private": true,
-  "version": "0.4.3",
+  "version": "0.4.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
