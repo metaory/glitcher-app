@@ -218,11 +218,19 @@ button {
   border: none;
   font-weight: bold;
   background-color: var(--x0);
+  transition: all 0.3s ease;
+}
 
-  &:hover {
-    background-color: var(--bo);
-    transform: scale(1.05);
-  }
+button:hover:not(:disabled) {
+  background-color: var(--bo);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--bl);
+  transform: none;
 }
 
 #preview {
@@ -242,7 +250,7 @@ button {
 
 .download-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 #version {

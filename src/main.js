@@ -44,7 +44,8 @@ for (const id of ['textInput', 'speed', 'intensity', 'colorSep', 'slices']) {
   $(id).addEventListener('input', updatePreview)
 }
 
-// $('downloadWebm').onclick = () => downloader.webm(query('#preview svg'))
+if (/* temporary */ $('downloadWebm'))
+  $('downloadWebm').onclick = () => downloader.webm(query('#preview svg'))
 
 $('download').onclick = () => downloader.svg(query('#preview svg'))
 $('version').textContent = `v${import.meta.env.VERSION}`
