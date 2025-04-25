@@ -1,11 +1,11 @@
 const CONFIG = {
     fps: 30,
     duration: 10,
-    quality: 5_000_000,
+    quality: 2_000_000,
     codec: 'video/webm;codecs=vp9',
     options: {
-        maxBitrate: 3_000_000,
-        minBitrate: 1_500_000,
+        maxBitrate: 2_400_000,
+        minBitrate: 1_200_000,
         maxQuantizer: 56,
         minQuantizer: 20
     }
