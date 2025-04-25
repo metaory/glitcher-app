@@ -30,7 +30,6 @@ const updatePreview = (e) => {
   $('preview').innerHTML = createGlitchEffect(getText(), getParams())
 }
 
-// Add range label update function
 const updateRangeLabels = () => {
   for (const input of document.querySelectorAll('input[type="range"]')) {
     const label = document.createElement('div')
@@ -44,8 +43,7 @@ for (const id of ['textInput', 'speed', 'intensity', 'colorSep', 'slices']) {
   $(id).addEventListener('input', updatePreview)
 }
 
-if (/* temporary */ $('downloadWebm'))
-  $('downloadWebm').onclick = () => downloader.webm(query('#preview svg'))
+$('downloadWebm').onclick = () => downloader.webm(query('#preview svg'), $('downloadWebm'))
 
 $('download').onclick = () => downloader.svg(query('#preview svg'))
 $('version').textContent = `v${import.meta.env.VERSION}`
