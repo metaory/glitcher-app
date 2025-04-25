@@ -24,11 +24,13 @@
   color-scheme: only dark;
   --fg: #6655EE88;
   --bg: #220033;
+  --bg: #3344dd99;
   --bo: #22003399;
   --bl: #22003344;
   --x0: #441144;
-  --x1: #771177;
-  --x2: #BB4499;
+  --x1: #221177;
+  --x2: #9944BB;
+  --x3: #ff00FFAA;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -55,9 +57,9 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background: var(--bo);
-  /* scrollbar-color: var(--x0) transparent;
-  scrollbar-width: thin; */
+  background: var(--bg);
+  /* scrollbar-color: var(--x0) transparent; */
+  /* scrollbar-width: thin; */
 }
 
 main {
@@ -73,13 +75,13 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  padding: 1rem 1rem 0;
+  padding-top: 0.4rem;
   mix-blend-mode: overlay;
   transition: transform 0.2s ease;
 
   span {
     margin: 0;
-    font-size: 4rem;
+    font-size: 2.4rem;
     background: #00000066;
     padding: 0rem 1rem;
     border-radius: 1rem;
@@ -110,12 +112,11 @@ header {
   gap: 0.4rem;
 }
 
-input,
-button {
+input {
   font: inherit;
   background-color: var(--bo);
   border: none;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   padding: 0.5rem 1rem;
   outline: 8px solid var(--x0);
   color: var(--x2);
@@ -133,9 +134,10 @@ button {
 }
 
 input[type="text"] {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   padding: 1rem 2rem;
+  height: 1rem;
   text-align: center;
   max-width: 50vw;
   min-width: 100px;
@@ -145,7 +147,8 @@ input[type="text"] {
 .range-group {
   display: flex;
   flex-direction: column;
-  mix-blend-mode: screen;
+  mix-blend-mode: color-dodge;
+  /* mix-blend-mode: difference; */
 }
 
 .range-group label {
@@ -169,13 +172,11 @@ input[type="range"] {
   position: relative;
   outline: none;
   display: block;
-  background-color: var(--bo);
   border-radius: 0.6rem;
   box-shadow: 0 0 1.8rem var(--bo);
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-  background: var(--bo);
   border-radius: 0.6rem;
 }
 
@@ -221,26 +222,55 @@ input[type="range"]:active {
   cursor: grabbing;
 }
 
+.download-buttons {
+  display: grid;
+  place-items: center;
+  place-self: center;
+  /* mix-blend-mode: color-burn; */
+  /* mix-blend-mode: overlay; */
+  mix-blend-mode: multiply;
+  /* filter: url(#gooey); */
+  filter: url(#gooey);
+  width: 80%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+
+  &>img {
+    background-color: var(--x3);
+    padding: 0.4rem;
+  }
+
+  &>div {
+    border-radius: 1rem;
+    border: solid 6px var(--x3);
+    padding: 0.2rem 0.4rem;
+    background-color: var(--x3);
+  }
+
+}
+
 button {
+  background-color: var(--x3);
+  border: solid 6px var(--x3);
   cursor: pointer;
-  font-size: 1.2rem;
-  padding: 0.4rem 0.6rem;
-  border: none;
+  font-family: bungee, monospace;
+  font-size: 1.4rem;
   font-weight: bold;
-  background-color: var(--x0);
+  color: white;
+  padding: 0.4rem 0.6rem;
+  border-radius: 2rem;
   transition: all 0.3s ease;
-}
+  outline: none;
 
-button:hover:not(:disabled) {
-  background-color: var(--bo);
-  transform: scale(1.05);
-}
+  &:disabled {
+    cursor: not-allowed;
+  }
 
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background-color: var(--bl);
-  transform: none;
+  &:hover, &:focus-visible, &:active {
+    color: black;
+    box-shadow: 0 0 1.8rem var(--x3);
+    transform: scale(1.6);
+  }
 }
 
 #preview {
@@ -259,39 +289,6 @@ button:disabled {
   }
 }
 
-.download-buttons {
-  display: flex;
-  gap: 2rem;
-}
-
-.download-buttons button {
-  position: relative;
-  min-width: 35vw;
-  text-align: right;
-  font-family: bungee, monospace;
-  font-size: 1.5rem;
-  mix-blend-mode: color-dodge;
-  /* padding: 8px; */
-}
-
-.download-buttons button::before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  background: url('/download.svg') no-repeat center;
-  background-size: contain;
-}
-#download {
-  padding: 0.4rem 1.2rem;
-}
-#download::before {
-  left: 10px;
-}
-
 #version {
   font-family: bungee, monospace;
   font-weight: bold;
@@ -302,4 +299,5 @@ button:disabled {
   font-size: 0.8rem;
   opacity: 0.4;
   pointer-events: none;
+  mix-blend-mode: multiply;
 }
