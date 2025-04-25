@@ -51,13 +51,13 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   margin: 0;
   background: var(--bo);
-  scrollbar-color: var(--x0) transparent;
-  scrollbar-width: thin;
+  /* scrollbar-color: var(--x0) transparent;
+  scrollbar-width: thin; */
 }
 
 main {
@@ -224,7 +224,7 @@ input[type="range"]:active {
 button {
   cursor: pointer;
   font-size: 1.2rem;
-  padding: 0.8rem 1.5rem;
+  padding: 0.4rem 0.6rem;
   border: none;
   font-weight: bold;
   background-color: var(--x0);
@@ -277,13 +277,19 @@ button:disabled {
 .download-buttons button::before {
   content: '';
   position: absolute;
-  left: 9px;
+  left: 4px;
   top: 50%;
   transform: translateY(-50%);
   width: 36px;
   height: 36px;
   background: url('/download.svg') no-repeat center;
   background-size: contain;
+}
+#download {
+  padding: 0.4rem 1.2rem;
+}
+#download::before {
+  left: 10px;
 }
 
 #version {
