@@ -28,7 +28,7 @@
 </div>
 
 <div align="center">
-    <img src="public/screenshot.png" alt="demo" width="30%" />
+    <img src="public/screenshot.png" alt="demo" width="70%" />
     <div>
         <img src="public/emoji_1.svg" alt="demo" width="10%" height="60" />
         <img src="public/symbol.svg"  alt="demo" width="10%" height="120" />
