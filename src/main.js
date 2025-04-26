@@ -1,3 +1,5 @@
+import '@fontsource/bungee'
+import '@fontsource/libre-barcode-128-text'
 import gradientGL from 'gradient-gl'
 import { downloader } from './save.js'
 import createGlitchEffect from './glitch.js'
@@ -43,12 +45,11 @@ for (const id of ['textInput', 'speed', 'intensity', 'colorSep', 'slices']) {
   $(id).addEventListener('input', updatePreview)
 }
 
-const setupDownloaders = ext => {
+const setupDownloaders = (ext) => {
   const btn = $(`download-${ext}`)
   btn.onclick = () => downloader[ext](query('#preview svg'), btn)
 }
-
-['webm', 'svg', 'gif'].forEach(setupDownloaders)
+;['webm', 'svg', 'gif'].forEach(setupDownloaders)
 
 $('version').textContent = `v${import.meta.env.VERSION}`
 
