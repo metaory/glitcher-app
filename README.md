@@ -13,12 +13,28 @@
         <br>
         with real-time preview and customization
     </p>
-    <img src="public/glitcher.svg" width="60%" />
-    <img src="public/screenshot.png" alt="demo" width="60%" />
+    <img src="public/glitcher.svg" width="40%" />
+</div>
+
+<div align="center">
+
+|   Format   |  Status                                  |
+|:----------:|:----------------------------------------:|
+|    SVG     |  ![glitcher](public/circle-green.svg)    |
+|   WebM     |  ![glitcher](public/circle-green.svg)    |
+|    GIF     |  ![glitcher](public/circle-yellow.svg)   |
+|    MP4     |  ![glitcher](public/circle-red.svg)      |
+
+</div>
+
+<div align="center">
+    <img src="public/screenshot.png" alt="demo" width="30%" />
+    <div>
+        <img src="public/emoji_1.svg" alt="demo" width="10%" height="60" />
+        <img src="public/symbol.svg"  alt="demo" width="10%" height="120" />
+        <img src="public/emoji_2.svg" alt="demo" width="10%" height="60" />
+    </div>
     <br>
     <a href="LICENSE">MIT</a> License
     <br>
-    <img src="public/emoji_1.svg" alt="demo" width="20%" height="60" />
-    <img src="public/symbol.svg"  alt="demo" width="20%" height="120" />
-    <img src="public/emoji_2.svg" alt="demo" width="20%" height="60" />
 </div>

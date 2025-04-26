@@ -3,7 +3,7 @@ import { downloader } from './save.js'
 import createGlitchEffect from './glitch.js'
 import './style.css'
 
-gradientGL('a2.bf6a')
+gradientGL('a2.be6a')
 
 const $ = document.getElementById.bind(document)
 const query = document.querySelector.bind(document)

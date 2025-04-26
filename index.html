@@ -23,10 +23,29 @@
 <body>
   <svg style="position: absolute; width: 0; height: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <filter id="gooey">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur" />
-        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 40 -6" result="gooey" />
-        <feComposite in="SourceGraphic" in2="gooey" />
+      <filter
+        id="gooey"
+      >
+        <feGaussianBlur
+          in="SourceGraphic"
+          stdDeviation="10"
+          result="blur"
+        />
+        <feColorMatrix
+          in="blur"
+          mode="matrix"
+          values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 20 -5"
+          result="gooey"
+        />
+        <feComposite
+          in="SourceGraphic"
+          in2="gooey"
+          operator="atop"
+        />
       </filter>
     </defs>
   </svg>
@@ -34,7 +53,7 @@
   <main>
     <header>
       <a target="_blank" href="https://github.com/metaory/glitcher-app">
-        <img src="/github.svg" alt="GitHub" width="48" height="48">
+        <img src="/github.svg" alt="GitHub" width="55" height="55">
       </a>
       <span>Glitcher</span>
     </header>
@@ -59,7 +78,9 @@
       </div>
     </div>
     <div class="download-buttons">
-      <img src="/download.svg" alt="Download" width="36" height="36">
+      <div class="icon">
+        <img src="/download.svg" alt="Download" width="36" height="36">
+      </div>
       <div>
         <button id="download-svg">SVG</button>
         <button id="download-webm">WebM</button>
