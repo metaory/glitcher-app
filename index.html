@@ -4,48 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A dynamic SVG glitch effect generator with real-time preview and customization." />
+  <link rel="canonical" href="https://metaory.github.io/glitcher-app/" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="author" content="metaory" />
-  <meta property="og:title" content="SVG Glitch Generator" />
-  <meta property="og:description"
-    content="A dynamic SVG glitch effect generator with real-time preview and customization." />
+  <meta name="theme-color" content="#992299" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A dynamic SVG glitch effect generator with real-time preview and customization" />
+  <meta property="og:description" content="A dynamic SVG glitch effect generator with real-time preview and customization" />
   <meta property="og:image" content="https://metaory.github.io/glitcher-app/social.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://metaory.github.io/glitcher-app/" />
   <meta property="og:logo" content="https://metaory.github.io/glitcher-app/logo.png" />
+  <meta property="og:url" content="https://metaory.github.io/glitcher-app/" />
   <meta property="og:author" content="metaory" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Glitcher" />
+  <meta property="og:title" content="SVG Glitch Generator" />
+  <meta property="og:type" content="website" />
   <title>SVG Glitch Generator</title>
 </head>
 
 <body>
   <svg style="position: absolute; width: 0; height: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <filter
-        id="gooey"
-      >
-        <feGaussianBlur
-          in="SourceGraphic"
-          stdDeviation="10"
-          result="blur"
-        />
-        <feColorMatrix
-          in="blur"
-          mode="matrix"
-          values="
+      <filter id="gooey">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="
             1 0 0 0 0
             0 1 0 0 0
             0 0 1 0 0
-            0 0 0 20 -5"
-          result="gooey"
-        />
-        <feComposite
-          in="SourceGraphic"
-          in2="gooey"
-          operator="atop"
-        />
+            0 0 0 20 -5" result="gooey" />
+        <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
       </filter>
     </defs>
   </svg>
