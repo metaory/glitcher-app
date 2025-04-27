@@ -9,7 +9,7 @@
         </a>
     </h4>
     <p>
-        A dynamic SVG glitch effect generator 
+        Create animated glitches in SVG, WebM, and GIF
         <br>
         with real-time preview and customization
     </p>
