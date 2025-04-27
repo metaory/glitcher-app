@@ -125,7 +125,7 @@ export default (text, params) => {
   <text 
     filter="url(#glitch)" 
     fill="#FFFFFF" 
-    font-family="monospace, serif" 
+    font-family="Arial Black, Impact, Arial, monospace, system-ui"
     font-weight="bolder" 
     font-size="${fontSize}" 
     text-anchor="middle" 
