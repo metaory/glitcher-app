@@ -24,12 +24,41 @@ const getParams = () => ({
   heightVariation: parse($('slices').value),
 })
 
+const state = new Proxy({ img: null }, {
+  set(obj, prop, val) {
+    obj[prop] = val
+    updatePreview()
+    return true
+  }
+})
+
+$('imgInput').onchange = e => {
+  const file = e.target.files[0]
+  if (!file) {
+    state.img = null
+    return
+  }
+  $('textInput').value = ''
+  const reader = new FileReader()
+  reader.onload = ev => { state.img = ev.target.result }
+  reader.readAsDataURL(file)
+}
+
+$('textInput').addEventListener('input', e => {
+  if (state.img) state.img = null
+})
+
+const renderImage = src => `<img src="${src}" alt="glitch-img" style="max-width:100%;max-height:320px;border-radius:1.2em;border:4px solid #fc4a;" />`
+
 const updatePreview = (e) => {
   if (e?.target?.type === 'range') {
     updateValue(e)
     $('textInput').blur()
   }
-  $('preview').innerHTML = createGlitchEffect(getText(), getParams())
+  $('preview').innerHTML = createGlitchEffect({
+    text: state.img ? '' : getText(),
+    img: state.img || null
+  }, getParams())
 }
 
 const updateRangeLabels = () => {

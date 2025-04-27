@@ -73,34 +73,37 @@ const calculateSliceDurations = (speed, normalizedHeights) => {
   })
 }
 
-export default (text, params) => {
-  const { width, height, fontSize } = calculateDimensions(text)
+export default (input, params) => {
+  const isImg = !!input.img
+  const text = input.text
+  const img = input.img
   const { speed, intensity, colorSep, heightVariation } = params
+
+  // For text, measure and size as before
+  // For image, use fixed or intrinsic size, or fallback
+  const dims = isImg
+    ? { width: 420, height: 120, fontSize: 0 } // TODO: optionally infer from image
+    : calculateDimensions(text)
+  const { width, height, fontSize } = dims
 
   const sliceHeights = Array.from({ length: 8 }, () =>
     Math.floor(Math.random() * (6 + heightVariation * 2 - 6) + 6),
   )
-
   const totalHeight = sliceHeights.reduce((sum, h) => sum + h, 0)
   const normalizedHeights = sliceHeights.map((h) =>
     Math.max(6, Math.round((h / totalHeight) * 100)),
   )
-
   const currentTotal = normalizedHeights.reduce((sum, h) => sum + h, 0)
   normalizedHeights[normalizedHeights.length - 1] += 100 - currentTotal
-
   const sliceYs = normalizedHeights.map((_, i) =>
     normalizedHeights.slice(0, i).reduce((sum, h) => sum + h, 0),
   )
-
   const sliceDurations = calculateSliceDurations(speed, normalizedHeights)
   const slices = normalizedHeights.map((height, i) =>
     createSlice(i, sliceYs[i], height, sliceDurations[i], intensity),
   )
-
   const colorMatrix = (channel) => `      <feColorMatrix 
   in="SourceGraphic" result="${channel}" type="matrix" values="${colorMatrices[channel]}" /> `
-
   const colorOffset = (channel, dx, dur) => {
     const keyTimes = createKeyTimes()
     const values = createValues(colorSep)
@@ -113,16 +116,16 @@ export default (text, params) => {
       </feOffset>
     `
   }
-
   return `<svg xmlns="http://www.w3.org/2000/svg" 
             width="${Math.round(width)}px" 
             height="${height}px" 
-            viewBox="0 0 ${Math.round(width)} ${height}"
-          >
+            viewBox="0 0 ${Math.round(width)} ${height}">
   <!-- made with glitcher-app v${import.meta.env.VERSION} -->
   <!-- https://github.com/metaory/glitcher-app -->
   <!-- MIT License (c) 2025 metaory -->
-  <text 
+  ${isImg
+    ? `<image href="${img}" x="0" y="0" width="100%" height="100%" filter="url(#glitch)" style="image-rendering:pixelated;" />`
+    : `<text
     filter="url(#glitch)" 
     fill="#FFFFFF" 
     font-family="Arial Black, Impact, Arial, monospace, system-ui"
@@ -132,7 +135,7 @@ export default (text, params) => {
     dominant-baseline="middle" 
     x="48%" 
     y="50%"
-  >${text}</text>
+  >${text}</text>`}
   <defs>
     <filter id="glitch" primitiveUnits="objectBoundingBox" x="-10%" y="0%" width="120%" height="100%">
 ${Object.keys(colorMatrices).map(colorMatrix).join('\n')}
