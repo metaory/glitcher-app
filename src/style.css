@@ -143,9 +143,10 @@ input {
 
 #inputWrap {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  /* grid-template-columns: 4fr 1fr; */
   /* width: min(90vw, 420px); */
   overflow: hidden;
+  border-radius: 2em;
 
   input[type="text"] {
     grid-column: 1;
@@ -159,10 +160,11 @@ input {
     opacity: 0.4;
     padding: 1.1rem 2rem;
     text-align: center;
-    border-top-left-radius: 2.0em;
-    border-bottom-left-radius: 2.0em;
+    border-radius: 2em;
+    /* border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
     border-top-right-radius: 0em;
-    border-bottom-right-radius: 0em;
+    border-bottom-right-radius: 0em; */
     border-right: none;
 
     &::placeholder {
