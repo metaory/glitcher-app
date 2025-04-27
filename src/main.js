@@ -5,7 +5,7 @@ import { downloader } from './save.js'
 import createGlitchEffect from './glitch.js'
 import './style.css'
 
-gradientGL('a2.be6a')
+gradientGL('a2.fc4a')
 
 const $ = document.getElementById.bind(document)
 const query = document.querySelector.bind(document)
@@ -49,6 +49,7 @@ const setupDownloaders = (ext) => {
   const btn = $(`download-${ext}`)
   btn.onclick = () => downloader[ext](query('#preview svg'), btn)
 }
+
 ;['webm', 'svg', 'gif'].forEach(setupDownloaders)
 
 $('version').textContent = `v${import.meta.env.VERSION}`

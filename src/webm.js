@@ -1,3 +1,5 @@
+import { captureState } from './svgcap.js'
+
 const CONFIG = {
     fps: 30,
     duration: 10,
@@ -14,50 +16,6 @@ const CONFIG = {
 const log = (msg, ...args) => {
     const time = (performance.now() / 1000).toFixed(1)
     console.log(`[WebM ${time}s]`, msg, ...args)
-}
-
-const getSVGDimensions = svg => ({
-    width: svg.getAttribute('viewBox')?.split(' ')[2] || svg.width.baseVal.value,
-    height: svg.getAttribute('viewBox')?.split(' ')[3] || svg.height.baseVal.value
-})
-
-const createCanvas = ({width, height}) => {
-    width = Math.floor(width / 2) * 2
-    height = Math.floor(height / 2) * 2
-    return Object.assign(document.createElement('canvas'), {width, height})
-}
-
-const updateAnimationState = (svg, time) => {
-    const svgCopy = svg.cloneNode(true)
-    for (const anim of svgCopy.querySelectorAll('animate')) {
-        const values = anim.getAttribute('values')?.split(';') || []
-        if (!values.length) continue
-        const targetValue = values[Math.floor(time * (values.length - 1))]
-        anim.setAttribute('values', targetValue)
-        anim.setAttribute('keyTimes', '0')
-    }
-    return svgCopy
-}
-
-const svgToImage = svg => new Promise(resolve => {
-    const blob = new Blob([new XMLSerializer().serializeToString(svg)], {type: 'image/svg+xml'})
-    const url = URL.createObjectURL(blob)
-    const img = new Image()
-    img.onload = () => {
-        URL.revokeObjectURL(url)
-        resolve(img)
-    }
-    img.src = url
-})
-
-const captureState = async (svg, time) => {
-    const svgCopy = updateAnimationState(svg, time)
-    const canvas = createCanvas(getSVGDimensions(svg))
-    const ctx = canvas.getContext('2d', { alpha: true })
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    const img = await svgToImage(svgCopy)
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-    return canvas
 }
 
 const initRecorder = stream => {

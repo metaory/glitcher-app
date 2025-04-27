@@ -4,7 +4,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('@fontsource/bungee/files/bungee-latin-400-normal.woff2') format('woff2'),
-       url('@fontsource/bungee/files/bungee-latin-400-normal.woff') format('woff');
+    url('@fontsource/bungee/files/bungee-latin-400-normal.woff') format('woff');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('@fontsource/libre-barcode-128-text/files/libre-barcode-128-text-latin-400-normal.woff2') format('woff2'),
-       url('@fontsource/libre-barcode-128-text/files/libre-barcode-128-text-latin-400-normal.woff') format('woff');
+    url('@fontsource/libre-barcode-128-text/files/libre-barcode-128-text-latin-400-normal.woff') format('woff');
 }
 
 :root {
@@ -23,7 +23,7 @@
 
   color-scheme: dark;
   --fg: #6655EE88;
-  --bg: #7733dd66;
+  --bg: #44118844;
   --bo: #22003399;
   --bl: #22003344;
   --x0: #441144;
@@ -48,6 +48,9 @@
 
 * {
   user-select: none;
+  /* margin: 0; */
+  /* padding: 0; */
+  /* box-sizing: border-box; */
 }
 
 html,
@@ -56,12 +59,18 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background: var(--bg);
+  /* background: var(--bg); */
   /* scrollbar-color: var(--x0) transparent; */
   /* scrollbar-width: thin; */
 }
 
+canvas#gradient-gl {
+  filter: blur(6rem) brightness(0.9);
+}
+
 main {
+  /* position: relative; */
+  /* z-index: 1; */
   display: grid;
   place-items: center;
   gap: 2rem;
@@ -75,7 +84,6 @@ header {
   align-items: center;
   width: 90%;
   padding-top: 0.4rem;
-  mix-blend-mode: overlay;
   transition: transform 0.2s ease;
 
   span {
@@ -87,6 +95,7 @@ header {
     text-transform: uppercase;
     font-family: barcode, monospace;
     backdrop-filter: blur(10px);
+    mix-blend-mode: overlay;
   }
 
   a {
@@ -94,13 +103,12 @@ header {
     border-radius: 50%;
 
     img {
-      color: cyan;
-      filter: invert(1);
-
       transition: all 0.3s ease;
+      mix-blend-mode: plus-lighter;
 
       &:hover {
         transform: scale(1.1);
+        opacity: 0.8;
       }
     }
   }
@@ -113,7 +121,7 @@ input {
   border: none;
   border-radius: 1.4rem;
   padding: 0.5rem 1rem;
-  outline: 10px solid var(--x0);
+  outline: 10px solid var(--bo);
   color: var(--x2);
   transition: all 0.6s ease;
   mix-blend-mode: color-dodge;
@@ -121,6 +129,7 @@ input {
   &::placeholder {
     color: white;
     opacity: 0.4;
+    mix-blend-mode: plus-lighter;
   }
 
   &:hover {
@@ -143,6 +152,7 @@ input[type="text"] {
   height: 1rem;
   text-align: center;
   max-width: 50vw;
+  background-color: var(--x0);
   min-width: 100px;
   font-family: bungee, monospace;
   opacity: 0.4;
@@ -235,7 +245,7 @@ input[type="range"]:active {
   place-items: center;
   place-self: center;
   mix-blend-mode: overlay;
-  filter: url(#gooey) opacity(0.6);
+  filter: url(#gooey) opacity(0.4);
   width: 80%;
   padding: 0.5rem;
   border-radius: 1rem;

@@ -18,12 +18,9 @@
 
 <div align="center">
 
-|   Format   |  Status                                  |
-|:----------:|:----------------------------------------:|
-|    SVG     |  ![glitcher](public/circle-green.svg)    |
-|   WebM     |  ![glitcher](public/circle-green.svg)    |
-|    GIF     |  ![glitcher](public/circle-yellow.svg)   |
-|    MP4     |  ![glitcher](public/circle-red.svg)      |
+|      SVG   |     WebM   |     GIF    |     PNG    |     MP4    |   
+|:----------:|:----------:|:----------:|:----------:|:----------:|
+|  ![glitcher](public/circle-green.svg)  |  ![glitcher](public/circle-green.svg)  |  ![glitcher](public/circle-green.svg)  |  ![glitcher](public/circle-yellow.svg)  |  ![glitcher](public/circle-red.svg)  |
 
 </div>
 
