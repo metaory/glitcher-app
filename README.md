@@ -9,11 +9,14 @@
         </a>
     </h4>
     <p>
-        Create animated glitches in SVG, WebM, and GIF
+        Create animated glitches in 
+        <br>
+        <code>SVG</code> • <code>WebM</code> • <code>GIF</code>
         <br>
         with real-time preview and customization
     </p>
     <img src="public/glitcher.svg" width="40%" />
+    <img src="public/glitcher.gif" width="60%" />
 </div>
 
 <div align="center">
