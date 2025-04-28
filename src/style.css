@@ -60,7 +60,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  /* background: var(--bg); */
+  background: var(--bg);
   /* scrollbar-color: var(--x0) transparent; */
   /* scrollbar-width: thin; */
 }

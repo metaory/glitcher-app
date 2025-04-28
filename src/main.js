@@ -5,7 +5,7 @@ import { downloader } from './save.js'
 import createGlitchEffect from './glitch.js'
 import './style.css'
 
-gradientGL('a2.fc4a')
+gradientGL('a2.af4a')
 
 const $ = document.getElementById.bind(document)
 const query = document.querySelector.bind(document)
