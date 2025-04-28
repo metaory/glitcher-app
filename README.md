@@ -16,7 +16,7 @@
         with real-time preview and customization
     </p>
     <img src="public/glitcher.svg" width="40%" />
-    <img src="public/glitcher.gif" width="60%" />
+    <img src="public/glitcher.gif" width="90%" />
 </div>
 
 <div align="center">
