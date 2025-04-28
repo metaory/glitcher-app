@@ -4,6 +4,7 @@ import gradientGL from 'gradient-gl'
 import { downloader } from './save.js'
 import createGlitchEffect from './glitch.js'
 import './style.css'
+import { createCanvas } from './svgcap.js'
 
 gradientGL('a2.af4a')
 
@@ -32,26 +33,33 @@ const state = new Proxy({ img: null }, {
   }
 })
 
+const downscale = (file, maxDim = 512) => new Promise(res => {
+  const img = new window.Image()
+  img.onload = () => {
+    const scale = Math.min(1, maxDim / Math.max(img.width, img.height))
+    const w = Math.round(img.width * scale)
+    const h = Math.round(img.height * scale)
+    const canvas = createCanvas({ width: w, height: h })
+    canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+    res({ dataUrl: canvas.toDataURL('image/png'), width: w, height: h })
+  }
+  img.src = URL.createObjectURL(file)
+})
+
 $('imgInput').onchange = e => {
   const file = e.target.files[0]
-  if (!file) {
+  if (file) {
+    downscale(file, 512).then(({ dataUrl, width, height }) => {
+      state.img = dataUrl
+      state.imgWidth = width
+      state.imgHeight = height
+    })
+  } else {
     state.img = null
     state.imgWidth = null
     state.imgHeight = null
-    return
   }
   $('textInput').value = ''
-  const reader = new FileReader()
-  reader.onload = ev => {
-    const img = new window.Image()
-    img.onload = () => {
-      state.img = ev.target.result
-      state.imgWidth = img.naturalWidth
-      state.imgHeight = img.naturalHeight
-    }
-    img.src = ev.target.result
-  }
-  reader.readAsDataURL(file)
 }
 
 $('textInput').addEventListener('input', e => {
