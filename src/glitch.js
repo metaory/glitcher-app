@@ -123,19 +123,23 @@ export default (input, params) => {
   <!-- made with glitcher-app v${import.meta.env.VERSION} -->
   <!-- https://github.com/metaory/glitcher-app -->
   <!-- MIT License (c) 2025 metaory -->
-  ${isImg
-    ? `<image href="${img}" x="0" y="0" width="100%" height="100%" filter="url(#glitch)" style="image-rendering:pixelated;" />`
-    : `<text
+  ${
+    isImg
+      ? `<image href="${img}" x="0" y="0" width="100%" height="100%" filter="url(#glitch)" style="image-rendering:pixelated;" />`
+      : `<text
     filter="url(#glitch)" 
     fill="#FFFFFF" 
-    font-family="Arial Black, Impact, Arial, monospace, system-ui"
+    font-family="monospace, sans-serif"
     font-weight="bolder" 
     font-size="${fontSize}" 
     text-anchor="middle" 
     dominant-baseline="middle" 
+    stroke="#FFFFFF"
+    stroke-width="2"
     x="48%" 
     y="50%"
-  >${text}</text>`}
+  >${text}</text>`
+  }
   <defs>
     <filter id="glitch" primitiveUnits="objectBoundingBox" x="-10%" y="0%" width="120%" height="100%">
 ${Object.keys(colorMatrices).map(colorMatrix).join('\n')}
@@ -152,3 +156,5 @@ ${Object.keys(colorMatrices).map(colorMatrix).join('\n')}
 </svg>
   `.replace(/\n\s*\n/g, '\n')
 }
+
+// font-family="Arial Black, Impact, Arial, monospace, system-ui"
