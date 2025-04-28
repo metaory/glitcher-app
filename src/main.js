@@ -32,17 +32,17 @@ const state = new Proxy({ img: null }, {
   }
 })
 
-$('imgInput').onchange = e => {
-  const file = e.target.files[0]
-  if (!file) {
-    state.img = null
-    return
-  }
-  $('textInput').value = ''
-  const reader = new FileReader()
-  reader.onload = ev => { state.img = ev.target.result }
-  reader.readAsDataURL(file)
-}
+// $('imgInput').onchange = e => {
+//   const file = e.target.files[0]
+//   if (!file) {
+//     state.img = null
+//     return
+//   }
+//   $('textInput').value = ''
+//   const reader = new FileReader()
+//   reader.onload = ev => { state.img = ev.target.result }
+//   reader.readAsDataURL(file)
+// }
 
 $('textInput').addEventListener('input', e => {
   if (state.img) state.img = null
