@@ -32,17 +32,27 @@ const state = new Proxy({ img: null }, {
   }
 })
 
-// $('imgInput').onchange = e => {
-//   const file = e.target.files[0]
-//   if (!file) {
-//     state.img = null
-//     return
-//   }
-//   $('textInput').value = ''
-//   const reader = new FileReader()
-//   reader.onload = ev => { state.img = ev.target.result }
-//   reader.readAsDataURL(file)
-// }
+$('imgInput').onchange = e => {
+  const file = e.target.files[0]
+  if (!file) {
+    state.img = null
+    state.imgWidth = null
+    state.imgHeight = null
+    return
+  }
+  $('textInput').value = ''
+  const reader = new FileReader()
+  reader.onload = ev => {
+    const img = new window.Image()
+    img.onload = () => {
+      state.img = ev.target.result
+      state.imgWidth = img.naturalWidth
+      state.imgHeight = img.naturalHeight
+    }
+    img.src = ev.target.result
+  }
+  reader.readAsDataURL(file)
+}
 
 $('textInput').addEventListener('input', e => {
   if (state.img) state.img = null
@@ -55,9 +65,12 @@ const updatePreview = (e) => {
     updateValue(e)
     $('textInput').blur()
   }
+  const isImg = !!state.img
   $('preview').innerHTML = createGlitchEffect({
-    text: state.img ? '' : getText(),
-    img: state.img || null
+    text: isImg ? '' : getText(),
+    img: state.img || null,
+    imgWidth: isImg ? state.imgWidth : undefined,
+    imgHeight: isImg ? state.imgHeight : undefined
   }, getParams())
 }
 

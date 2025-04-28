@@ -120,16 +120,13 @@ input {
   font: inherit;
   background-color: var(--bo);
   border: none;
-  border-radius: 1.4rem;
   padding: 0.5rem 1rem;
-  outline: 10px solid var(--bo);
-  color: var(--x2);
   transition: all 0.6s ease;
   mix-blend-mode: color-dodge;
 
   &:hover {
-    outline-color: var(--x1);
-    background-color: var(--x1);
+    outline-color: var(--x0);
+    background-color: var(--x0);
     opacity: 1;
   }
 
@@ -143,29 +140,22 @@ input {
 
 #inputWrap {
   display: grid;
-  /* grid-template-columns: 4fr 1fr; */
-  /* width: min(90vw, 420px); */
+  gap: 1rem;
+  place-items: center;
   overflow: hidden;
-  border-radius: 2em;
 
   input[type="text"] {
-    grid-column: 1;
-    background-color: var(--x0);
     font-family: bungee, monospace;
     font-size: 1.4rem;
     font-weight: bold;
     height: 1rem;
     max-width: 50vw;
     min-width: 100px;
-    opacity: 0.4;
+    opacity: 0.8;
     padding: 1.1rem 2rem;
     text-align: center;
-    border-radius: 2em;
-    /* border-top-left-radius: 2em;
-    border-bottom-left-radius: 2em;
-    border-top-right-radius: 0em;
-    border-bottom-right-radius: 0em; */
-    border-right: none;
+    border-radius: 1.2rem;
+    color: var(--x2);
 
     &::placeholder {
       color: white;
@@ -183,12 +173,18 @@ input {
     background: var(--bn);
     color: #fff;
     cursor: pointer;
-    border-top-right-radius: 2.2em;
-    border-bottom-right-radius: 2.2em;
-    transition: background-color 0.2s;
+    transition: all 0.6s;
+    border-radius: 1.2rem;
+    padding: 0.5rem 1rem;
+    opacity: 0.8;
 
     img {
-      mix-blend-mode: plus-lighter;
+      mix-blend-mode: overlay;
+    }
+
+    &:hover {
+      background-color: var(--bo);
+      filter: hue-rotate(40deg);
     }
 
     &:active,

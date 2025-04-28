@@ -80,9 +80,13 @@ export default (input, params) => {
   const { speed, intensity, colorSep, heightVariation } = params
 
   // For text, measure and size as before
-  // For image, use fixed or intrinsic size, or fallback
+  // For image, use provided or fallback size
   const dims = isImg
-    ? { width: 420, height: 120, fontSize: 0 } // TODO: optionally infer from image
+    ? {
+        width: input.imgWidth || 420,
+        height: input.imgHeight || 120,
+        fontSize: 0
+      }
     : calculateDimensions(text)
   const { width, height, fontSize } = dims
 

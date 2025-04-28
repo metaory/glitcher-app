@@ -2,7 +2,7 @@
   "name": "glitcher-app",
   "description": "Create animated glitches in SVG, WebM, and GIF with real-time preview and customization",
   "private": true,
-  "version": "0.6.3-3",
+  "version": "0.6.3-4",
   "type": "module",
   "scripts": {
     "dev": "vite",
